@@ -1,6 +1,6 @@
 🎓 Projeto Alura+
 Recriação da página de vendas do Combo+ (Alura+ e Alura Língua), feita como projeto de estudo do curso de HTML5 e CSS3 da Alura. O foco é praticar layout, imagens, seções e responsividade com HTML e CSS puros.
-🔗 Online: projetoaluraplus-smoky.vercel.app
+🔗 Online: https://projetoaluraplus-smoky.vercel.app
 ⚠️ Projeto educacional, sem fins comerciais. Alura, Alura+ e Alura Língua são marcas de seus respectivos donos.
 ✨ O que tem na página
 Banner principal com a oferta do Combo+ e botões de assinatura
