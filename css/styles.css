@@ -1,0 +1,442 @@
+
+/* ==========================================================
+   Variáveis
+   ========================================================== */
+:root {
+    --branco-principal: #FFFFFF;
+    --cinza-secundario: #C0C0C0;
+    --botao-azul: #167BF7;
+    --botao-azul-efeito: #3c92fa;
+    --cor-de-fundo: #0F0F0F;
+    --cor-de-fundo-hero: #1A1A1A;
+    --destaque-1: #FF5C58;
+    --destaque-2: #FFAA5C;
+    --fonte-principal: 'Inter', sans-serif;
+ 
+    --transicao: 0.3s ease;
+    --transicao-lenta: 0.5s cubic-bezier(.2, .7, .2, 1);
+}
+ 
+/* ==========================================================
+   Reset e base
+   ========================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ 
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+ 
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--branco-principal);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+ 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+ 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ 
+/* ==========================================================
+   Layout genérico
+   ========================================================== */
+.container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+ 
+/* ==========================================================
+   Seção principal (hero)
+   ========================================================== */
+.principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding: clamp(2rem, 6vw, 4rem) 5%;
+    text-align: center;
+    background-color: var(--cor-de-fundo-hero);
+    background-image: url("../img/Background.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+ 
+.container__caixa {
+    flex: 1 1 320px;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeInUp 0.9s ease-out both;
+}
+ 
+.container__titulo {
+    font-size: clamp(1.4rem, 2.5vw + 0.5rem, 2rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+ 
+.container__imagem {
+    margin: 1em auto 2em;
+}
+ 
+.container__aviso {
+    font-size: 0.8rem;
+    color: var(--cinza-secundario);
+    margin-top: 1rem;
+}
+ 
+.principal__imagem {
+    flex: 1 1 320px;
+    max-width: 600px;
+    animation: fadeInUp 0.9s ease-out 0.2s both;
+}
+ 
+.principal__imagem img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: transform var(--transicao-lenta), box-shadow var(--transicao-lenta);
+}
+ 
+.principal__imagem img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+}
+ 
+/* ==========================================================
+   Botões
+   ========================================================== */
+.container__botao {
+    display: block;
+    padding: 1rem 2rem;
+    margin: 0 0 1rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-weight: 700;
+    color: var(--branco-principal);
+    background: linear-gradient(135deg, var(--destaque-1), var(--destaque-2));
+    cursor: pointer;
+    transition: transform var(--transicao), box-shadow var(--transicao),
+                background var(--transicao), color var(--transicao),
+                border-color var(--transicao);
+}
+ 
+.container__botao:hover,
+.container__botao:focus-visible {
+    background: linear-gradient(135deg, #FF3633, #FF9A33);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 90, 90, 0.3);
+}
+ 
+.container__botao:active {
+    transform: translateY(-1px) scale(0.98);
+}
+ 
+.container__botao:focus-visible,
+.lista__link a:focus-visible {
+    outline: 2px solid var(--botao-azul-efeito);
+    outline-offset: 3px;
+}
+ 
+.botao_secundario {
+    background: transparent;
+    border-color: var(--destaque-1);
+    color: var(--destaque-1);
+}
+ 
+.botao_secundario:hover,
+.botao_secundario:focus-visible {
+    background: var(--destaque-1);
+    color: var(--branco-principal);
+}
+ 
+/* ==========================================================
+   Seções secundárias
+   ========================================================== */
+.secundario {
+    gap: clamp(1.5rem, 4vw, 3rem);
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 8vw, 10rem);
+    min-height: auto;
+    align-items: center;
+}
+ 
+.secundario__imagem {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    transition: transform var(--transicao-lenta), filter var(--transicao-lenta);
+}
+ 
+.secundario__imagem:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.5));
+}
+ 
+.container__descricao {
+    padding: clamp(1rem, 3vw, 2rem);
+}
+ 
+.descricao__titulo {
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw + 0.5rem, 3rem);
+    line-height: 1.15;
+    color: var(--branco-principal);
+    margin-bottom: 0.3em;
+}
+ 
+.descricao__texto {
+    color: var(--cinza-secundario);
+    font-size: clamp(1rem, 1vw + 0.8rem, 1.125rem);
+}
+ 
+.secundario__botao {
+    display: inline-block;
+    margin-top: 1em;
+}
+ 
+/* Botão dentro da descrição não precisa ocupar a linha toda no desktop */
+.container__descricao .container__botao {
+    display: inline-block;
+    margin-top: 1.25rem;
+}
+ 
+/* ==========================================================
+   Dispositivos
+   ========================================================== */
+.dispositivos {
+    text-align: center;
+    padding: clamp(2rem, 6vw, 4rem) 1.25rem;
+}
+ 
+.dispositivos__titulo {
+    font-size: clamp(1.75rem, 4vw + 0.5rem, 3rem);
+    line-height: 1.15;
+    color: var(--branco-principal);
+}
+ 
+.dispositivos__lista {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    list-style: none;
+    margin: clamp(2rem, 5vw, 5rem) 0;
+}
+ 
+.dispositivos__lista li {
+    transition: transform var(--transicao), opacity var(--transicao);
+}
+ 
+.dispositivos__lista li:hover {
+    transform: translateY(-6px) scale(1.05);
+}
+ 
+.dispositivos__lista img {
+    margin: 0 auto 0.5rem;
+}
+ 
+.lista__item {
+    font-size: clamp(1.25rem, 2vw + 0.5rem, 2rem);
+    color: var(--branco-principal);
+}
+ 
+/* ==========================================================
+   Rodapé
+   ========================================================== */
+.rodape {
+    text-align: center;
+    padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 4vw, 3rem);
+}
+ 
+.rodape__logo {
+    margin: 0 auto;
+}
+ 
+.rodape__lista {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    list-style: none;
+    margin-top: 1em;
+}
+ 
+.lista__link a {
+    color: var(--branco-principal);
+    position: relative;
+    transition: color var(--transicao);
+}
+ 
+/* sublinhado animado no hover */
+.lista__link a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: var(--botao-azul);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transicao);
+}
+ 
+.lista__link a:hover,
+.lista__link a:focus-visible {
+    color: var(--botao-azul);
+}
+ 
+.lista__link a:hover::after,
+.lista__link a:focus-visible::after {
+    transform: scaleX(1);
+}
+ 
+.lista__link a:active {
+    color: purple;
+}
+ 
+.rodape__texto {
+    margin: 1em auto;
+    max-width: 900px;
+    color: var(--cinza-secundario);
+    font-size: 0.875rem;
+}
+ 
+/* ==========================================================
+   Animações
+   ========================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
+/* Aparece ao rolar a página (só em navegadores com suporte; sem JS) */
+@supports (animation-timeline: view()) {
+    .secundario,
+    .dispositivos,
+    .rodape {
+        animation: revealUp linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+    }
+}
+ 
+/* ==========================================================
+   Responsividade
+   ========================================================== */
+ 
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+    .secundario {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+ 
+/* Tablets em retrato e abaixo: empilha tudo */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        text-align: center;
+    }
+ 
+    .principal {
+        flex-direction: column-reverse;
+    }
+ 
+    .container__caixa,
+    .principal__imagem {
+        flex-basis: auto;
+        width: 100%;
+    }
+ 
+    .container__imagem {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+ 
+/* Celulares */
+@media (max-width: 600px) {
+    .container__botao {
+        width: 100%;
+        padding: 0.9rem 1.25rem;
+    }
+ 
+    .container__descricao .container__botao {
+        display: block;
+    }
+ 
+    .dispositivos__lista {
+        flex-direction: column;
+        align-items: center;
+    }
+ 
+    .rodape__lista {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+ 
+/* Telas sensíveis ao toque: sem "hover preso" */
+@media (hover: none) {
+    .principal__imagem img:hover,
+    .secundario__imagem:hover,
+    .dispositivos__lista li:hover,
+    .container__botao:hover {
+        transform: none;
+        filter: none;
+    }
+}
+ 
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+ 
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
