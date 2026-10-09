@@ -76,7 +76,7 @@ a {
     padding: clamp(2rem, 6vw, 4rem) 5%;
     text-align: center;
     background-color: var(--cor-de-fundo-hero);
-    background-image: url("../img/Background.png");
+    background-image: url("../img/background.png");
     background-repeat: no-repeat;
     background-size: contain;
 }
